@@ -3,6 +3,8 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import Review from './review';
 import StarRating from './star_rating';
+import Link from "next/link";
+
 
 interface Buyer {
   username: string;
@@ -78,25 +80,34 @@ const ReviewsPage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
+    <div className="min-h-screen bg-gray-100">
       <div className="max-w-3xl mx-auto">
-        <section className="my-8">
-          <h2 className="text-2xl font-bold">받은 리뷰</h2>
-          {reviewsData && (
-            <div className="mb-4">
-              <div className='flex'>
-              <div className="text-xl mr-2 text-yellow-500">
-                 <StarRating rating={reviewsData.avg_rating} /> 
+        <section>
+          <div className='flex justify-between items-end'>
+            <div>
+            <h2 className="text-2xl font-bold">받은 리뷰</h2>
+            {reviewsData && (
+              <div className="mb-4">
+                <div className='flex'>
+                <div className="text-xl mr-2 text-yellow-500">
+                  <StarRating rating={reviewsData.avg_rating} /> 
+                </div>
+                <div className="text-lg flex">
+                  <div className='font-bold' >{formatRating(reviewsData.avg_rating)}</div>
+                  ({reviewsData.total})
+                </div></div>
+                <div className="text-md text-gray-500 text-xs">
+                  실제 크몽을 통해 구매한 이용자들이 남긴 리뷰예요.
+                </div>
               </div>
-              <div className="text-lg flex">
-                <div className='font-bold' >{formatRating(reviewsData.avg_rating)}</div>
-                ({reviewsData.total})
-              </div></div>
-              <div className="text-md text-gray-500 text-xs">
-                실제 크몽을 통해 구매한 이용자들이 남긴 리뷰예요.
-              </div>
+            )}
             </div>
-          )}
+
+            <Link href={`https://kmong.com/@%EA%B9%80%EC%B2%A8%EC%A7%80%EB%84%A4`} className="flex items-center gap-1 font-bold text-xl mb-4">
+              <img className='w-6 h-6 rounded-md' src="icons/kmong.png" alt="크몽:김첨지네" />
+              <p>@김첨지네</p>
+            </Link>
+          </div>
           {loading ? (
             <div>Loading...</div>
           ) : (

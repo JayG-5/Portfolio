@@ -20,9 +20,7 @@ class kmongShell extends htmlShell {
     return (
       <div className={this.frameCode}>
         {this.title()}
-        <div className="gap-y-10 mb-20">
-            <ReviewsPage></ReviewsPage>
-        </div>
+        <ReviewsPage></ReviewsPage>
       </div>
     );
   }
