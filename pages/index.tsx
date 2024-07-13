@@ -3,7 +3,7 @@ import HomeTitle from "@/components/homeTitle";
 import HomeProfile from "@/components/homeProfile";
 import HomeStacks from "@/components/homeStacks";
 import HomeProjects from "@/components/homeProjects";
-import HomeCareers from "@/components/homeCareers";
+import HomeKmong from "@/components/homeKmong";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
       <HomeProfile />
       <HomeStacks />
       <HomeProjects />
-      <HomeCareers />
+      <HomeKmong />
     </div>
   );
 }

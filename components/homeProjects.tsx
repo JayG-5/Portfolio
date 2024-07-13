@@ -3,11 +3,11 @@ import { ReactElement, useState } from "react";
 import { htmlShell } from "./htmlShell";
 
 class projectShell extends htmlShell {
-    private portfolio : portfolioScript;
-    private ruftkeks : ruftkeksScript;
+    private portfolio : essayfitScript;
+    private ruftkeks : peacheeseScript;
     private noticelog : noticelogScript;
     
-    constructor(themeCode:string, frameCode:string, portfolio:portfolioScript, ruftkeks:ruftkeksScript, noticelog:noticelogScript) {
+    constructor(themeCode:string, frameCode:string, portfolio:essayfitScript, ruftkeks:peacheeseScript, noticelog:noticelogScript) {
         super(themeCode, frameCode);
         this.noticelog = noticelog;
         this.portfolio = portfolio;
@@ -87,8 +87,8 @@ abstract class projectScript {
 
     protected setProjectImgUrl () {
         return (
-            <div className="rounded-xl shadow-xl p-2 mb-10">
-                <img src={this.imageList[this.imageIndex]} alt="" style={{maxHeight: "630px"}}/>
+            <div className="rounded-xl shadow-xl p-2 mb-10 flex flex-col justify-center items-center">
+                <img className="" src={this.imageList[this.imageIndex]} alt="" style={{maxHeight: "630px"}}/>
                 <div className="flex flex-row justify-center items-center scale-75">
                     <button onClick={() => this.handleArrowClick("left", this.imageList, this.imageIndex, this.setImageIndex)}>
                         <img src="icons/leftArrow.png" alt="" />
@@ -132,48 +132,34 @@ class noticelogScript extends projectScript {
         return (
             <>
                 <div className="text-sm mb-5">
-                    현재는 서비스를 종료했지만, 앱 개발자인 친동생과 함께 만든 서비스입니다.<br/>
+                    현재는 서비스를 종료했지만, 백엔드 개발자인 친형과 함께 만든 서비스입니다.<br/>
                     외주를 위탁한 디자인을 제외하고 기획부터 앱 배포까지 온전히 수행한데서 의미가 있습니다.<br/>
                 </div>
                 <ul className="grid grid-cols-5 nanum-square">
                     <li className="col-span-2 mb-5">
-                        팀 구성 및 <p className="underline decoration-2 decoration-grantCareer">역할</p>
+                    팀 구성 및 <a className="underline decoration-2 decoration-grantCareer">역할</a>
                     </li>
                     <li className="col-span-3">
-                        앱 개발 1, 디자인 1, <a className="underline decoration-2 decoration-grantCareer">백엔드 개발 1</a>
+                    <a className="underline decoration-2 decoration-grantCareer">앱 개발 1</a>, 디자인 1, 백엔드 개발 1
                     </li>
-                    <li className="col-span-2 row-span-4 mt-8">
+                    <li className="col-span-2 row-span-1 mb-5">
                         내용
                     </li>
                     <li className="col-span-3">
-                        공시정보 수집 및 서비스 API 개발
+                        Flutter를 이용한 크로스플랫폼 앱 개발
+                    </li>
+                    <li className="col-span-2 row-span-1">
+                        기술스택
                     </li>
                     <li className="col-span-3">
-                        관심공시 알림 및 분산처리 개발
-                    </li>
-                    <li className="col-span-3">
-                        기업정보, 로고 관리 페이지 개발
-                    </li>
-                    <li className="col-span-3">
-                        AWS 배포 및 모니터링 시스템 개발
-                    </li>
-                    <li className="col-span-2 mt-5">
-                        성과
-                    </li>
-                    <li className="col-span-3 flex flex-row justify-center mt-1">
-                        <Link href="https://play.google.com/store/apps/details?id=com.coblah.dart_notification&hl=ko" className="text-xs">
-                            <img src="icons/googlePlay.png" alt="" ></img>
-                        </Link>
-                        <Link href="https://apps.apple.com/kr/app/%EA%B3%B5%EC%8B%9C%EB%A1%9D/id1661274178" className="text-xs">
-                            <img src="icons/appStore.png" alt="" ></img>
-                        </Link>
+                        Flutter, Firebase, Git, Jira, Slack, Adobe XD, GetX, Freezed
                     </li>
                 </ul>
             </>
         );
     }
 }
-class ruftkeksScript extends projectScript {
+class peacheeseScript extends projectScript {
     constructor(titleName:string, subTitleName:string, imageList: Array<string>, imageIndex : number, setImageIndex : Function) {
         super(titleName, subTitleName, imageList, imageIndex, setImageIndex);
     }
@@ -182,40 +168,55 @@ class ruftkeksScript extends projectScript {
         return (
             <>
                 <div className="text-sm mb-5">
-                    오랜 친구들과 추억을 저장하기 위해 블로그를 만들고 있습니다.<br/>
-                    Springboot, Next.js, Redux 등의 기술스택의 향상을 목표로 합니다.<br/>
+                복숭아의 매력을 한 눈에 알아볼 수 있게 다양한 복숭아 관련 상품을 제공하고자 합니다.<br/>
+                특히, 농부 및 제작자들과 소비자들 사이의 다리 역할을 하며,<br/>
+                이를 통해 지역적으로 생산된 농산물 소비를 장려하고 소비자들에게 더욱 신선하고, 풍성하고 다양한 옵션을 제공합니다.
                 </div>
                 <ul className="grid grid-cols-5 nanum-square">
                     <li className="col-span-2 mb-5">
-                        팀 구성 및 <a className="underline decoration-2 decoration-grantCareer">역할</a>
+                        팀 구성
                     </li>
                     <li className="col-span-3">
-                        <a className="underline decoration-2 decoration-grantCareer">백엔드 개발 1, 프론트 개발 1</a>
+                        부트캠프 교육생 5
                     </li>
-                    <li className="col-span-2 row-span-1">
+                    <li className="col-span-2 row-span-1 mb-5">
                         내용
                     </li>
                     <li className="col-span-3">
-                        커스텀 인증 및 API 개발
+                        Infra Architecture, App, Backend, Deployment
+                    </li>
+                    <li className="col-span-2 row-span-1 mb-5">
+                        기술스택
+                    </li>
+                    <li className="col-span-3">
+                        Python, django, Docker, WebSocket, Firebase, Git, Notion, Figma, Flutter, RiverPod
                     </li>
                     <li className="col-span-2 mt-5">
                         성과
                     </li>
                     <li className="col-span-3 flex flex-row justify-around mt-1">
                         <figure>
-                            <Link href="https://github.com/coblah-co-kr/ruftkeks_springboot" className="text-xs">
+                            <Link href="https://github.com/Pe-chesse/Pe-chesse" className="text-xs">
                                 <img src="icons/git.png" alt="" style={{display:"block", margin:"0 auto"}}/>
                             </Link>
                             <figcaption>
-                                Springboot(Java)
+                                README.md
                             </figcaption>
                         </figure>
                         <figure>
-                            <Link href="https://github.com/coblah-co-kr/ruftkeks_ts_next" className="text-xs">
+                            <Link href="https://github.com/Pe-chesse/Peach-Market" className="text-xs">
                                 <img src="icons/git.png" alt="" style={{display:"block", margin:"0 auto"}}/>
                             </Link>
                             <figcaption>
-                                NextJs(Typescript)
+                                backend(django)
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <Link href="https://github.com/Pe-chesse/Peacheese-Flutter" className="text-xs">
+                                <img src="icons/git.png" alt="" style={{display:"block", margin:"0 auto"}}/>
+                            </Link>
+                            <figcaption>
+                                app(Flutter)
                             </figcaption>
                         </figure>
                     </li>
@@ -225,7 +226,7 @@ class ruftkeksScript extends projectScript {
     }
 }
 
-class portfolioScript extends projectScript {
+class essayfitScript extends projectScript {
     constructor(titleName:string, subTitleName:string, imageList: Array<string>, imageIndex : number, setImageIndex : Function) {
         super(titleName, subTitleName, imageList, imageIndex, setImageIndex);
     }
@@ -233,31 +234,25 @@ class portfolioScript extends projectScript {
     setProjectDescription() {
         return (
             <>
-                <div className="text-sm mb-5">
-                    지속적인 포트폴리오의 관리를 위해 지금 보고 계신 포트폴리오를 개발했습니다.<br/>
-                    구글링중에 우연히 발견한 <Link href="https://cdg-portfolio.com/" className="text-grantCareer font-bold">최덕경님의 포트폴리오</Link>의 디자인을 참고했습니다.<br/>
-                    디자인 사용에 대한 허가를 받았으며, 지속적으로 업데이트할 계획입니다.
-                </div>
                 <ul className="grid grid-cols-5 nanum-square">
                     <li className="col-span-2 mb-5">
                         팀 구성 및 <a className="underline decoration-2 decoration-grantCareer">역할</a>
                     </li>
                     <li className="col-span-3">
-                        <a className="underline decoration-2 decoration-grantCareer">프론트 개발 1</a>
+                    PO 1, PM 및 백엔드 1, 인프라 및 백엔드 1, 디자이너 1, 프론트엔드 1, QA 1, 
+                        <a className="underline decoration-2 decoration-grantCareer">앱 1(외주)</a>
                     </li>
-                    <li className="col-span-2 row-span-1">
+                    <li className="col-span-2 row-span-1 mb-5">
                         내용
                     </li>
                     <li className="col-span-3">
-                        포트폴리오 개발
+                        Flutter를 이용한 크로스플랫폼 앱 개발
                     </li>
-                    <li className="col-span-2 mt-5">
-                        성과
+                    <li className="col-span-2 row-span-1">
+                        기술스택
                     </li>
-                    <li className="col-span-3 flex flex-row justify-around mt-1">
-                        <Link href="https://github.com/coblah-co-kr/grantPortfolio" className="text-xs">
-                            <img src="icons/git.png" alt="" style={{display:"block", margin:"0 auto"}}/>
-                        </Link>
+                    <li className="col-span-3">
+                        Flutter, Firebase, Git, Jira, Slack, Adobe XD, RiverPod, Freezed
                     </li>
                 </ul>
             </>
@@ -266,37 +261,37 @@ class portfolioScript extends projectScript {
 }
 
 export default function HomeProjects () {
-    const portfolioImageList = ["img/portfolio/intro.png"];
-    const ruftkeksImageList = ["img/ruftkeks/intro.png", "img/ruftkeks/privacyTos.png"];
+    const portfolioImageList = Array.from({ length: 6 }, (_, i) => `img/essayfit/${i}.png`);;
+    const peacheeseImageList = ["0.png","39.gif","41.gif","42.gif","45.gif","47.gif","49.gif","50.gif","55.gif"].map((e)=>`img/peacheese/${e}`);
     const noticelogImageList = ["img/noticelog/released.png", "img/noticelog/intro.png", "img/noticelog/today.png", "img/noticelog/wishList.png", "img/noticelog/calendar.png"];
 
     const [portfolioImageIndex, setPortfolioImageIndex] = useState(0);
-    const [ruftkeksImageIndex, setRuftkeksImageIndex] = useState(0);
+    const [peacheeseImageIndex, setPeacheeseImageIndex] = useState(0);
     const [noticelogImageIndex, setNoticelogImageIndex] = useState(0);
 
     const ps = new projectShell(
         "bg-grantProject text-white snap-start",
         "max-w-[48rem] mx-auto h-auto grid justify-items-center",
-        new portfolioScript(
-            "Portfolio <2023.05~>",
-            "개인 포트폴리오",
+        new essayfitScript(
+            "Essayfit AI <2022.05~2023.12>",
+            "자연어처리를 이용한 미국대학 지원 에세이 첨삭 플랫폼(서비스 종료)",
             portfolioImageList,
             portfolioImageIndex,
             setPortfolioImageIndex,
         ),
-        new ruftkeksScript(
-            "결사단 <2023.04~>",
-            "블로그 서비스",
-            ruftkeksImageList,
-            ruftkeksImageIndex,
-            setRuftkeksImageIndex
-        ),
         new noticelogScript(
-            "공시록 <2022.12~2023.03>",
-            "실시간 공시 알림 서비스",
+            "공시록 <2023.01~2023.04>",
+            "실시간 공시 알림 서비스(서비스 종료)",
             noticelogImageList,
             noticelogImageIndex,
             setNoticelogImageIndex
+        ),
+        new peacheeseScript(
+            "복숭아마켓 <2023.08~2023.09>",
+            "Estsoft 부트캠프 최종 팀프로젝트",
+            peacheeseImageList,
+            peacheeseImageIndex,
+            setPeacheeseImageIndex
         )
     );
 

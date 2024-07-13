@@ -1,4 +1,5 @@
 import { htmlShell } from "./htmlShell";
+import Link from "next/link";
 
 class profileShell extends htmlShell {
   constructor(themeCode:string, frameCode:string) {
@@ -17,12 +18,12 @@ class profileShell extends htmlShell {
       <div className={this.frameCode}>
         {this.title()}
         <div className="grid grid-cols-3 gap-x-10 gap-y-10 mb-20">
-          {this.addInfo("school", "학력", ["한국항공대학교", "전자정보공학부"])}
-          {this.addInfo("birthday", "생년월일", ["1992.12.28"])}
-          {this.addInfo("address", "주소", ["경기도 하남시"])}
-          {this.addInfo("phone", "연락처", ["010-4141-3783"])}
-          {this.addInfo("email", "이메일", ["grant@coblah.co.kr"], "text-sm")}
-          {this.addInfo("git", "Git", ["github.com/modec28"], "text-xs")}
+          {this.addInfo("school", "학력", ["한국폴리텍대학", "IT융합제어과"])}
+          {this.addInfo("birthday", "생년월일", ["1994.08.03"])}
+          {this.addInfo("address", "주소", ["경기도 성남시"])}
+          {this.addInfo("phone", "연락처", ["010-5555-2758"])}
+          {this.addInfo("email", "이메일", ["jg55552758@gmail.com"], "text-sm")}
+          {this.addInfo("git", "GitHub", [], "text-xs","github.com/jayg-5")}
         </div>
       </div>
     );
@@ -34,7 +35,8 @@ class profileShell extends htmlShell {
       </div>
     );
   }
-  addInfo(iconName:string, topic:string, detail:Array<string>, textSize?:string) {
+
+  addInfo(iconName:string, topic:string, detail:Array<string>, textSize?:string, linkedText?:string)  {
     return (
       <div className="flex flex-row">
         <div className="basis-1/3 mr-2">
@@ -46,6 +48,11 @@ class profileShell extends htmlShell {
           </div>
           <div className={textSize}>
             {detail.map((char, index) => this.divChar(char, index))}
+            {linkedText && (
+                <Link href={`https://${linkedText}`} className="text-blue-500">
+                {linkedText}
+                </Link>
+              )}
           </div>  
         </div>
       </div>

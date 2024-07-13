@@ -1,23 +1,17 @@
 import { ReactElement, useState } from "react";
-import Modal from "./modal";
 import { htmlShell } from "./htmlShell";
 
 
 class stackScript extends htmlShell {
-  private modalVariable : string;
-  private setModalVariable : Function;
 
 
-  constructor(themeCode:string, frameCode:string, modalVariable:string, setModalVariable:Function) {
+  constructor(themeCode:string, frameCode:string) {
       super(themeCode, frameCode);
-      this.modalVariable = modalVariable;
-      this.setModalVariable = setModalVariable;
   }
 
   getContent() {
       return (
-          <div className={this.themeCode}>
-              <Modal imgDescription={this.modalVariable} setImgDescription={this.setModalVariable}/>           
+          <div className={this.themeCode}>       
               {this.content()}
           </div>
       );
@@ -26,25 +20,36 @@ class stackScript extends htmlShell {
       return (
           <div className={this.frameCode}>
               {this.title()}
-              {this.titleCaption()}
-              <div className="grid grid-cols-2 grid-flow-row mb-20 items-start gap-y-10">
-                {this.addBlock(
+              <div className="grid grid-cols-3 grid-flow-row mb-10 items-start gap-y-4">
+                
+                
+              {this.addBlock(
                   "Backend", 
-                  ["django", "python", "celery", "rabbitmq", "redis", "mysql", "firebase", "springboot", "java"],
+                  ["django", "python", "firebase", "postgreSQL", "java"],
                   "row-span-2",  
                 )}
                 {this.addBlock(
                   "Frontend", 
-                  ["react", "nextjs", "typescript", "redux", "tailwindcss"], 
+                  ["html-css-js","react"], 
+                )}
+                {this.addBlock(
+                  "Version Control", 
+                  ["ggit","github"], 
                 )}
                 {this.addBlock(
                   "Deployment", 
-                  ["aws", "dockercompose", "gitaction", "jenkins", "vercel"], 
+                  ["docker","dockercompose", "gitaction"], 
                   "row-span-2", 
                 )}
                 {this.addBlock(
                   "etc", 
                   ["jira", "slack", "figma"], 
+                  "row-span-2", 
+                )}
+                {this.addBlock(
+                  "Mobile", 
+                  ["flutter"], 
+                  "row-span-2", 
                 )}
               </div>
           </div>
@@ -53,21 +58,15 @@ class stackScript extends htmlShell {
 
   title() {
       return (
-          <div className="hansans text-5xl mt-20">
+          <div className="hansans text-5xl mt-20 mb-20">
               Skills
           </div>
       );
   }
-  titleCaption():ReactElement {
-      return (
-          <div className="kargugsu text-xl mb-20">
-          클릭하면 설명이 출력됩니다.
-          </div>
-      );
-  }
+
   addBlock(blockTitle:string, stackList:Array<string>, spanRow?:string):ReactElement {
     return (
-      <div className={"rounded-xl bg-white p-7 w-80 mx-5 shadow-2xl hover:shadow-grantProject ".concat(spanRow? spanRow: "")}>
+      <div className={"rounded-xl bg-white p-4 w-50 mx-2 shadow-2xl hover:shadow-grantProject ".concat(spanRow? spanRow: "")}>
           <div className="grid grid-cols-1 divide-y-2 divide-grantProject">
               {this.setBlockTitle(blockTitle)}
               <div className="flex flex-col">
@@ -87,7 +86,7 @@ class stackScript extends htmlShell {
   setBlockComponent(iconFileName: string, index:number):ReactElement {
     return (
       <div className="mx-5 my-2" key={index}>
-          <img src={"icons/".concat(iconFileName.concat(".png"))} alt="" onClick={() => this.setModalVariable(iconFileName)}/>
+          <img src={"icons/".concat(iconFileName.concat(".png"))} alt="" />
       </div>
     );
   }
@@ -98,8 +97,6 @@ export default function HomeStacks() {
   const ss = new stackScript(
     "bg-grantStack snap-start",
     "max-w-[48rem] mx-auto h-auto grid justify-items-center",
-    imgDescription,
-    setImgDescription
   );
   
   return ss.getContent();

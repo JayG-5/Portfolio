@@ -18,14 +18,13 @@ class titleShell extends htmlShell {
                 {this.title()}
                 {this.title2()}
                 {this.comment()}
-                {this.comment2()}
             </div>
         );
     }
     title() {
         return (
             <div className="hansans text-5xl">
-                김용균
+                김준균
             </div>
         );
     }
@@ -38,15 +37,11 @@ class titleShell extends htmlShell {
     }
     comment() {
         return (
-            <div className="kargugsu text-2xl">
-                안녕하세요
-            </div>
-        );
-    }
-    comment2() {
-        return (
-            <div className="kargugsu text-2xl">
-                연구원으로 커리어를 시작하여 웹 개발을 공부하고있습니다.
+            <div className="kargugsu text-2xl text-center">
+                Dart/Flutter 앱개발을 하고 있습니다.<br/>
+                현재 크몽에서 외주 개발 프리랜서(김첨지네)로 활동하며 경험을 쌓고 있습니다.<br/>
+                스스로 부족한 점이 많다고 생각합니다. <br/>
+                좋은 팀원분들과 함께 일하면서 배우고 성장하고 싶습니다.
             </div>
         );
     }
