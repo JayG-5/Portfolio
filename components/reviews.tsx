@@ -80,8 +80,8 @@ const ReviewsPage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-gray-100 w-full">
+      <div className="max-w-3xl mx-12">
         <section>
           <div className='flex justify-between items-end'>
             <div>
