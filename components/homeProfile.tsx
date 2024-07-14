@@ -38,10 +38,8 @@ class profileShell extends htmlShell {
 
   addInfo(iconName:string, topic:string, detail:Array<string>, textSize?:string, linkedText?:string)  {
     return (
-      <div className="flex flex-row">
-        <div className="basis-1/3 mr-2">
-          <img src={"icons/".concat(iconName.concat(".png"))} alt="" />
-        </div>
+      <div className="flex flex-row px-4">
+          <img className="h-12 w-12 mr-2" src={"icons/".concat(iconName.concat(".png"))} alt="" />
         <div className="basis-full flex flex-col">
           <div className="text-slate-600 font-bold">
             {topic}
